@@ -47,7 +47,7 @@ case $archive in
   *.7z)                   7za a    $archive                               "$@";;
   *)
     echo -E - "archive: unsupported archive type: ${(q+)archive}."
-    [[ ${archive:e:l} != (gz|bz2|xz|lzma) ]] || echo -E "Use .tar.${archive:e} instead." >&2
+    [[ $archive != *.(gz|bz2|xz|lzma) ]] || echo -E "Use .tar.${archive:e} instead." >&2
     return 1
   ;;
 esac
