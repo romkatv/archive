@@ -1,9 +1,9 @@
 Archive
 =======
 
-Provides functions to create, list, and extract archives.
+Create, list, and extract archives.
 
-Functions
+Commands
 ---------
 
   - `archive` creates an archive based on the provided archive name.
