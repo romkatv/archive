@@ -13,8 +13,8 @@ while getopts ":hr" opt; do
   case $opt in
     r)  remove_archive=1;;
     +r) remove_archive=0;;
-    \?) echo -E - "unarchive: invalid option: $OPTARG" >&2;            return 1;;
-    :)  echo -E - "unarchive: missing required argument: $OPTARG" >&2; return 1;;
+    \?) >&2 echo -E - "unarchive: invalid option: $OPTARG";            return 1;;
+    :)  >&2 echo -E - "unarchive: missing required argument: $OPTARG"; return 1;;
     *h)
       >&2 echo -E - 'usage: unarchive [{+|-}r] [archive...]'
       >&2 echo -E - ''
@@ -74,7 +74,7 @@ for archive in "${@:$OPTIND}"; do
       )
     ;;
     *)
-      echo -E - "unarchive: unsupported archive type: ${(q+)archive}."
+      echo -E - "unarchive: unsupported archive type: ${(q+)archive}." >&2
       return 1
     ;;
   esac

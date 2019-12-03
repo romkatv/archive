@@ -13,8 +13,8 @@ while getopts ":hv" opt; do
   case $opt in
     v)  v=v;;
     +v) v=;;
-    \?) echo -E - "lsarchive: invalid option: $OPTARG" >&2;            return 1;;
-    :)  echo -E - "lsarchive: missing required argument: $OPTARG" >&2; return 1;;
+    \?) >&2 echo -E - "lsarchive: invalid option: $OPTARG";            return 1;;
+    :)  >&2 echo -E - "lsarchive: missing required argument: $OPTARG"; return 1;;
     *h)
       >&2 echo -E - 'usage: lsarchive [{+|-}v] [archive...]'
       >&2 echo -E - ''
@@ -45,6 +45,6 @@ for archive in "${@:$OPTIND}"; do
     *.7z)
       7za l $archive;;
     *)
-      echo -E - "lsarchive: unsupported archive type: ${(q+)archive}."; return 1;;
+      echo -E - "lsarchive: unsupported archive type: ${(q+)archive}." >&2; return 1;;
   esac
 done

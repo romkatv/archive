@@ -46,7 +46,7 @@ case $archive in
   *.rar)                  rar a    $archive                               "$@";;
   *.7z)                   7za a    $archive                               "$@";;
   *)
-    echo -E - "archive: unsupported archive type: ${(q+)archive}."
+    echo -E - "archive: unsupported archive type: ${(q+)archive}." >&2
     [[ $archive != *.(gz|bz2|xz|lzma) ]] || echo -E "Use .tar.${archive:e} instead." >&2
     return 1
   ;;
