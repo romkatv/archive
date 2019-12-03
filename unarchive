@@ -6,7 +6,7 @@
 #   Sorin Ionescu <sorin.ionescu@gmail.com>
 #   Roman Perepelitsa <roman.perepelitsa@gmail.com>
 
-emulate -L zsh -o no_aliases -o no_unset -o err_return
+'builtin' 'emulate' '-L' 'zsh' '-o' 'no_aliases' '-o' 'no_unset' '-o' 'err_return' '-o' 'pipe_fail'
 
 local remove_archive=0 OPTIND OPTARG
 while getopts ":hr" opt; do

@@ -6,7 +6,7 @@
 #   Matt Hamilton <m@tthamilton.com>
 #   Roman Perepelitsa <roman.perepelitsa@gmail.com>
 
-emulate -L zsh -o no_aliases -o no_unset -o err_return
+'builtin' 'emulate' '-L' 'zsh' '-o' 'no_aliases' '-o' 'no_unset' '-o' 'err_return' '-o' 'pipe_fail'
 
 [[ -n ${1:-} ]] || {
   echo -E - 'usage: archive <archive> [file...]
