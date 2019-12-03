@@ -8,18 +8,18 @@
 
 'builtin' 'emulate' '-L' 'zsh' '-o' 'no_aliases' '-o' 'no_unset' '-o' 'err_return' '-o' 'pipe_fail'
 
-local remove_archive=0 OPTIND OPTARG
+local remove_archives=0 OPTIND OPTARG
 while getopts ":hr" opt; do
   case $opt in
-    r)  remove_archive=1;;
-    +r) remove_archive=0;;
+    r)  remove_archives=1;;
+    +r) remove_archives=0;;
     \?) >&2 echo -E - "unarchive: invalid option: $OPTARG";            return 1;;
     :)  >&2 echo -E - "unarchive: missing required argument: $OPTARG"; return 1;;
     *h)
       >&2 echo -E - 'usage: unarchive [{+|-}r] [archive...]'
       >&2 echo -E - ''
       >&2 echo -E - 'options:'
-      >&2 echo -E - '    -v    remove archive'
+      >&2 echo -E - '    -v    remove archive(s)'
       return 0
    ;;
   esac
@@ -78,5 +78,5 @@ for archive in "${@:$OPTIND}"; do
       return 1
     ;;
   esac
-  (( !remove_archive )) || rm $archive
+  (( !remove_archives )) || rm $archive
 done
