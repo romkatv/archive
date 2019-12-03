@@ -36,7 +36,7 @@ local gzip=${commands[pigz]:-gzip}
 local xz=${commands[pixz]:-xz}
 local bzip2=${commands[lbzip2]:-bzip2}
 
-case ${archive:l} in
+case $archive in
   *.tar.gz|*.tgz)         tar -cvf $archive --use-compress-program=$gzip  "$@";;
   *.tar.bz2|*.tbz|*.tbz2) tar -cvf $archive --use-compress-program=$bzip2 "$@";;
   *.tar.xz|*.txz)         tar -cvf $archive --use-compress-program=$xz    "$@";;

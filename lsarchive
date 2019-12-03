@@ -27,7 +27,7 @@ done
 
 local archive
 for archive in "${@:$OPTIND}"; do
-  case ${archive:l} in
+  case $archive in
     *.tar.gz|*.tgz)
       tar tzf$v $archive;;
     *.tar.bz2|*.tbz|*.tbz2)
