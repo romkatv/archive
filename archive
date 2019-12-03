@@ -9,9 +9,9 @@
 emulate -L zsh -o no_aliases -o no_unset -o err_return
 
 [[ -n ${1:-} ]] || {
-  echo -E - "usage: archive <archive_name> [file...]
+  echo -E - 'usage: archive <archive> [file...]
 
-<archive_name> must have one of the following extensions:
+<archive> must have one of the following extensions:
   tar.gz
   tgz
   tar.bz2
@@ -25,7 +25,7 @@ emulate -L zsh -o no_aliases -o no_unset -o err_return
   zip
   jar
   rar
-  7z"
+  7z'
   return 1
 }
 
@@ -36,7 +36,7 @@ local gzip=${commands[pigz]:-gzip}
 local xz=${commands[pixz]:-xz}
 local bzip2=${commands[lbzip2]:-bzip2}
 
-case $archive in
+case ${archive:l} in
   *.tar.gz|*.tgz)         tar -cvf $archive --use-compress-program=$gzip  "$@";;
   *.tar.bz2|*.tbz|*.tbz2) tar -cvf $archive --use-compress-program=$bzip2 "$@";;
   *.tar.xz|*.txz)         tar -cvf $archive --use-compress-program=$xz    "$@";;
@@ -47,7 +47,7 @@ case $archive in
   *.7z)                   7za a    $archive                               "$@";;
   *)
     echo -E - "archive: unsupported archive type: ${(q+)archive}."
-    [[ ${archive:e} != (gz|bz2|xz|lzma) ]] || echo -E "Use .tar.${archive:e} instead." >&2
+    [[ ${archive:e:l} != (gz|bz2|xz|lzma) ]] || echo -E "Use .tar.${archive:e} instead." >&2
     return 1
   ;;
 esac
