@@ -34,7 +34,7 @@ shift
 
 local gzip=${commands[pigz]:-gzip}
 local xz=${commands[pixz]:-xz}
-local bzip2=${commands[lbzip2]:-bzip2}
+local bzip2=${commands[lbzip2]:-${commands[pbzip2]:-bzip2}}
 
 case $archive in
   *.tar.gz|*.tgz)         tar -cvf $archive --use-compress-program=$gzip  "$@";;
