@@ -41,12 +41,10 @@ Alternatives
 Specifically on macOS, [The Unarchiver][1] provides a similar command line tool
 which doesn't depend on a number of other programs being installed.
 
-Authors
+Provenance
 -------
 
-*The authors of this module should be contacted via the [issue tracker][1].*
-
-  - [Sorin Ionescu](https://github.com/sorin-ionescu)
-  - [Matt Hamilton](https://github.com/Eriner)
+Forked from
+[prezto](https://github.com/sorin-ionescu/prezto/commit/2d6205e71404704eecc4f402e5b09d7cbd19bab7).
 
 [1]: https://theunarchiver.com/command-line
