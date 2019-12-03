@@ -39,4 +39,4 @@ Provenance
 -------
 
 Forked from
-[prezto](https://github.com/sorin-ionescu/prezto/commit/2d6205e71404704eecc4f402e5b09d7cbd19bab7).
+[prezto](https://github.com/sorin-ionescu/prezto/tree/2d6205e71404704eecc4f402e5b09d7cbd19bab7).
