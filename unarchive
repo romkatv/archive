@@ -55,7 +55,7 @@ for archive in "${@:$OPTIND}"; do
     *.zip|*.jar)
       unzip $archive -d ${archive:t:r};;
     *.rar)
-      ${commands[unrar]:-rar} x -ad $archive
+      ${commands[unrar]:-rar} x -ad $archive;;
     *.7z)
       7za x $archive;;
     *.deb)
