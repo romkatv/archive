@@ -19,7 +19,7 @@ while getopts ":hr" opt; do
       >&2 echo -E - 'usage: unarchive [{+|-}r] [archive...]'
       >&2 echo -E - ''
       >&2 echo -E - 'options:'
-      >&2 echo -E - '    -v    remove archive(s)'
+      >&2 echo -E - '    -r    remove archive(s)'
       return 0
    ;;
   esac
