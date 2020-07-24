@@ -38,6 +38,8 @@ for archive in "${@:$OPTIND}"; do
       tar -xvf $archive --use-compress-program=$bzip2;;
     *.tar.xz|*.txz)
       tar -xvf $archive --use-compress-program=$xz;;
+    *.tar.zst)
+      tar -xvf $archive --use-compress-program=zstd;;
     *.tar.lzma|*.tlz)
       tar --lzma --help &>/dev/null && tar --lzma -xvf $archive || lzcat $archive | tar -xvf -;;
     *.tar)
