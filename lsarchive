@@ -34,6 +34,8 @@ for archive in "${@:$OPTIND}"; do
       tar tjf$v $archive;;
     *.tar.xz|*.txz)
       tar --xz --help &>/dev/null && tar --xz -tf$v $archive || xzcat $archive | tar tf$v -;;
+    *.tar.zst)
+      tar --zstd --help &>/dev/null && tar --zstd -tf$v $archive || zstdcat $archive | tar tf$v -;;
     *.tar.lzma|*.tlz)
       tar --lzma --help &> /dev/null && tar --lzma -tf$v $archive || lzcat $archive | tar xf$v -;;
     *.tar)

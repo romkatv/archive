@@ -19,6 +19,7 @@ installed:
   - *.tar.gz*, *.tgz* require `tar` (optionally `pigz`).
   - *.tar.bz2*, *.tbz* require `tar` (optionally `pbzip2`).
   - *.tar.xz*, *.txz* require `tar` with *xz* support.
+  - *.tar.zst* requires `tar` with *zstd* support.
   - *.tar.lzma*, *.tlz* require `tar` with *lzma* support.
   - *.tar* requires `tar`.
   - *.gz* requires `gunzip`.
