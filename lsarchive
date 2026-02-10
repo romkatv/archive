@@ -40,7 +40,7 @@ for archive in "${@:$OPTIND}"; do
       tar --lzma --help &> /dev/null && tar --lzma -tf$v $archive || lzcat $archive | tar xf$v -;;
     *.tar)
       tar tf$v $archive;;
-    *.zip|*.jar)
+    *.zip|*.jar|*.war)
       unzip -l$v $archive;;
     *.rar)
       ${commands[unrar]:-${commands[rar]:-false}} ${v:-l} $archive || lsar ${v:+-l} $archive;;
