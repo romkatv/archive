@@ -54,7 +54,7 @@ for archive in "${@:$OPTIND}"; do
       unlzma $archive;;
     *.Z)
       uncompress $archive;;
-    *.zip|*.jar)
+    *.zip|*.jar|*.war)
       unzip $archive -d ${archive:t:r};;
     *.rar)
       ${commands[unrar]:-rar} x -ad $archive;;

@@ -24,6 +24,7 @@
   tar
   zip
   jar
+  war
   rar
   7z'
   return 1
@@ -43,7 +44,7 @@ case $archive in
   *.tar.zst)              tar -cvf $archive --use-compress-program=zstd   "$@";;
   *.tar.lzma|*.tlz)       tar -cvf $archive --lzma                        "$@";;
   *.tar)                  tar -cvf $archive                               "$@";;
-  *.zip|*.jar)            zip -r   $archive                               "$@";;
+  *.zip|*.jar|*.war)      zip -r   $archive                               "$@";;
   *.rar)                  rar a    $archive                               "$@";;
   *.7z)                   7za a    $archive                               "$@";;
   *)
