@@ -19,6 +19,7 @@
   tbz2
   tar.xz
   txz
+  tar.zst
   tar.zlma
   tlz
   tar
@@ -36,12 +37,13 @@ shift
 local gzip=${commands[pigz]:-gzip}
 local xz=${commands[pixz]:-xz}
 local bzip2=${commands[lbzip2]:-${commands[pbzip2]:-bzip2}}
+local zstd=${commands[pzstd]:-zstd}
 
 case $archive in
   *.tar.gz|*.tgz)         tar -cvf $archive --use-compress-program=$gzip  "$@";;
   *.tar.bz2|*.tbz|*.tbz2) tar -cvf $archive --use-compress-program=$bzip2 "$@";;
   *.tar.xz|*.txz)         tar -cvf $archive --use-compress-program=$xz    "$@";;
-  *.tar.zst)              tar -cvf $archive --use-compress-program=zstd   "$@";;
+  *.tar.zst)              tar -cvf $archive --use-compress-program=$zstd  "$@";;
   *.tar.lzma|*.tlz)       tar -cvf $archive --lzma                        "$@";;
   *.tar)                  tar -cvf $archive                               "$@";;
   *.zip|*.jar|*.war)      zip -r   $archive                               "$@";;

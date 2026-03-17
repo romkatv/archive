@@ -28,6 +28,7 @@ done
 local gzip=${commands[pigz]:-gzip}
 local xz=${commands[pixz]:-xz}
 local bzip2=${commands[lbzip2]:-${commands[pbzip2]:-bzip2}}
+local zstd="${commands[pzstd]:-zstd} -d"
 
 local archive
 for archive in "${@:$OPTIND}"; do
@@ -39,7 +40,7 @@ for archive in "${@:$OPTIND}"; do
     *.tar.xz|*.txz)
       tar -xvf $archive --use-compress-program=$xz;;
     *.tar.zst)
-      tar -xvf $archive --use-compress-program=zstd;;
+      tar -xvf $archive --use-compress-program=$zstd;;
     *.tar.lzma|*.tlz)
       tar --lzma --help &>/dev/null && tar --lzma -xvf $archive || lzcat $archive | tar -xvf -;;
     *.tar)
